@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+        label i {
+            margin-right: 8px;
+            color: #666;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .back-link {
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #4CAF50;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMIjB/MQBl8z4zz+5jRgfRgobw5iiFbK5B4LJ8s" crossorigin="anonymous">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Register as a Teacher</h2>
+        
+        <!-- Form to register as a teacher -->
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="name"><i class="fas fa-user"></i> Name:</label>
+                <input type="text" id="name" name="name" value="Default Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user-circle"></i> Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        
+        <!-- Link to go back to the main list or login -->
+        <a href="{% url 'login_view' %}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Login</a>
+    </div>
+</body>
+</html>
